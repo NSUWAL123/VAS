@@ -37,45 +37,45 @@ const LoginPage = () => {
   })
 
   return (
-    <div className="main-container">
-    <Form
-      name="basic"
-      labelCol={{ span: 9 }}
-      wrapperCol={{ span: 8 }}
-      initialValues={{ remember: true }}
-      onFinish={onFinish}
-      onFinishFailed={onFinishFailed}
-      autoComplete="off"
-      // style={{backgroundColor: 'red', }}
-      className='form-container'
-    >
-      <Form.Item
-        label="Username"
-        name="username"
-        rules={[{ required: true, message: 'Please input your username!' }]}
+    <div className="main-container-login">
+      <Form
+        name="basic"
+        labelCol={{ span: 9 }}
+        wrapperCol={{ span: 8 }}
+        initialValues={{ remember: true }}
+        onFinish={onFinish}
+        onFinishFailed={onFinishFailed}
+        autoComplete="off"
+        // style={{backgroundColor: 'red', }}
+        className='form-container-login'
       >
-        <Input />
-      </Form.Item>
+        <Form.Item
+          label="Username"
+          name="username"
+          rules={[{ required: true, message: 'Please input your username!' }]}
+        >
+          <Input />
+        </Form.Item>
 
-      <Form.Item
-        label="Password"
-        name="password"
-        rules={[{ required: true, message: 'Please input your password!' }]}
-      >
-        <Input.Password />
-      </Form.Item>
+        <Form.Item
+          label="Password"
+          name="password"
+          rules={[{ required: true, message: 'Please input your password!' }]}
+        >
+          <Input.Password />
+        </Form.Item>
 
-      <Form.Item name="remember" valuePropName="checked" wrapperCol={{ offset: 8, span: 16 }}>
-        <Checkbox>Remember me</Checkbox>
-      </Form.Item>
+        <Form.Item name="remember" valuePropName="checked" wrapperCol={{ offset: 8, span: 16 }}>
+          <Checkbox>Remember me</Checkbox>
+        </Form.Item>
 
-      <Form.Item wrapperCol={{ offset: 11, span: 16 }}>
-        <Button type="primary" htmlType="submit"
-        className='submit-btn'>
-          Submit
-        </Button>
-      </Form.Item>
-    </Form>
+        <Form.Item wrapperCol={{ offset: 11, span: 16 }}>
+          <Button type="primary" htmlType="submit"
+          className='submit-btn-login'>
+            Submit
+          </Button>
+        </Form.Item>
+      </Form>
     </div>
   )
 }

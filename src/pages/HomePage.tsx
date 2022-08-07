@@ -12,6 +12,7 @@ const HomePage = () => {
             <>
                 <Link to = '/LoginPage'>Login</Link>
                 <Link to = '/PatientRegistrationPage'>Patient Registration</Link>
+                <Link to = '/AppointmentPage'> Book Appointment</Link>
             </>
         )
     } else {

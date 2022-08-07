@@ -31,7 +31,7 @@ const PatientForm = () => {
     console.log("Failed:", errorInfo);
   };
   return (
-    <div className="main-container">
+    <div className="">
       <Form
         name="basic"
         labelCol={{ span: 8 }}

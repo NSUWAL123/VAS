@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-.main-container {
+.main-container-login {
     width: 98vw;
     height: 88vh;
     display: flex;
@@ -12,7 +12,7 @@
     justify-content: center;
 }
 
-.form-container {
+.form-container-login {
     width: 50%;
     /* height: 50%; */
     background-color: rgb(229, 229, 229);
@@ -21,7 +21,7 @@
     border: none;
 }
 
-.submit-btn {
+.submit-btn-login {
     padding-bottom: 35px;
     border-radius: 20px;
     background-color: rgb(255, 142, 142);
