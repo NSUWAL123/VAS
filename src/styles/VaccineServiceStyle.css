@@ -14,7 +14,7 @@ Form {
     
 }
 
-.patient-registration-main-container {
+.vaccine-registration-main-container {
     display: flex;
     flex-direction:column;
     /* align-items: center; */
@@ -31,27 +31,28 @@ Form {
     font-size: 4rem;
 }
 
-.submit-btn-patient-reg {
+.submit-btn-vaccine-reg {
     /* font-size: 2rem; */
     height: 3.8rem;
-    width: 11rem;
+    width: 28rem;
     border-radius: 5px;
     background-color: #ff002f;
     border: none;
+    margin: 1.5rem 0rem 1.5rem 0rem;
 }
 
-.submit-btn-patient-reg:hover {
+.submit-btn-vaccine-reg:hover {
     background-color: #ff395d;
     border: none;
 }
 
-.patient-reg-input {
+.vaccine-reg-input {
     font-size: 1.5rem;
     /* font-weight: ; */
     margin-bottom: 1.2rem;
 }
 
-.patient-gender-checkb {
+.vaccine-gender-checkb {
     font-size: 1.5rem;
     color: grey;
     margin-top: 5px;

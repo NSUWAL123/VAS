@@ -1,0 +1,59 @@
+.patient-manage-main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.patient-manage-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    /* background-color: rgb(255, 145, 145); */
+}
+
+.patient-manage-header h1 {
+    margin: 0px;
+    font-size: 4rem;
+    color: rgb(95, 95, 95);
+}
+
+.patient-manage-header Link {
+    color: white;
+}
+
+.patient-manage-main h2 {
+    font-size: 2rem;
+    align-self: flex-start;
+    margin-left: 5%;
+    color: rgb(95, 95, 95);
+}
+
+.add-pat-link-reg {
+    background-color: #ff002f;
+    color: white;
+    padding: 8px 25px 8px 25px;
+    font-size: 1.8em;
+    border-radius: 50px;
+    font-weight: 600;
+}
+
+.add-pat-link-reg:hover {
+    background-color: #FF476A;
+    color: white;
+}
+
+
+.table-header {
+    font-size: 18px;
+    margin: 0;
+}
+
+.table-cell {
+    font-size: 15px;
+}
+
+.patient-table {
+    width: 90%;
+}

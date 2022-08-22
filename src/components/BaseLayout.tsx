@@ -5,7 +5,7 @@ function BaseLayout(){
   return (
     <div>
         <Link to="/">
-          <h2 className='pageHeadingH2'>VAS</h2>
+          <h2>VAS</h2>
         </Link>
         <Outlet />
     </div>

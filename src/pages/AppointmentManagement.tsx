@@ -1,18 +1,12 @@
 import React from "react";
-import { Button, Form, Input, DatePicker, Radio, Upload, Checkbox, Table, Space } from "antd";
-import { PlusOutlined } from "@ant-design/icons";
-import { useNavigate, Link } from "react-router-dom";
-import '../styles/VaccineServiceStyle.css'
-import Column from "antd/lib/table/Column";
+import { Link } from "react-router-dom";
+import "../styles/PatientManagementStyle.css";
+import "../styles/AppointmentManagementStyle.css"
+import { Button, DatePicker, Form, Input, Space, Table, Tag } from "antd";
 
+const { Column, ColumnGroup } = Table;
 
-const VaccineServices = () => {
-  const onFinish = (values: any) => {};
-
-  const onFinishFailed = (errorInfo: any) => {
-    console.log("Failed:", errorInfo);
-  };
-
+const AppointmentManagement = () => {
   interface DataType {
     key: React.Key;
     firstName: string;
@@ -49,28 +43,40 @@ const VaccineServices = () => {
     },
   ];
 
+  const onFinish = (values: any) => {};
+
+  const onFinishFailed = (errorInfo: any) => {
+    console.log("Failed:", errorInfo);
+  };
+
+
+
   return (
-    <div>
-      <div className="vaccine-registration-main-container">
-        <div className="reg-heading">
-          <h1>Book Appointment</h1>
-        </div>
-        <Form
+    <div className="patient-manage-main">
+      <div className="patient-manage-header">
+        <h1>Appointment Management</h1>
+        {/* <Link to="/registration" className="add-pat-link-reg">
+          Add Appointment
+        </Link> */}
+      </div>
+      <p>Create Appointment:</p>
+      <Form
           name="form"
           labelCol={{ span: 10 }}
-          wrapperCol={{ span: 6 }}
+          wrapperCol={{ span: 5 }}
           onFinish={onFinish}
           onFinishFailed={onFinishFailed}
           initialValues={{ remember: true }}
           autoComplete="off"
+          className = "appointment-create-form"
         >
-          {/* <Form.Item
+          <Form.Item
             label={<h3>Patient Id</h3>}
             name="patientId"
             rules={[{ required: true, message: "Patient Id is Mandatory" }]}
           >
             <Input placeholder="" className="vaccine-reg-input" />
-          </Form.Item> */}
+          </Form.Item>
           <Form.Item
             label={<h3>Service Name</h3>}
             name="servicename"
@@ -94,27 +100,24 @@ const VaccineServices = () => {
             <DatePicker style={{ width: `${100}%` }} size="large" />
           </Form.Item>
 
-          <Form.Item wrapperCol={{ offset: 11, span: 16 }}>
+          
+          <Form.Item wrapperCol={{ offset: 10, span: 16 }}>
             <Button
               type="primary"
               htmlType="submit"
               className="submit-btn-app-create-reg"
             >
-              <p>Book Appointment</p>
+              <p>Create Appointment</p>
             </Button>
-            </Form.Item>
+          </Form.Item>
         </Form>
-      </div>
 
-
-      <div className="patient-manage-main">
-
-        <h2>My Appointments:</h2>
+        <h2>List of Appointments:</h2>
       <Table dataSource={data} className="patient-table">
         <Column
-          title={<p className="table-header">Service Name</p>}
-          dataIndex="serviceName"
-          key="serviceName"
+          title={<p className="table-header">Appointment ID</p>}
+          dataIndex="patientID"
+          key="patientID"
           className="table-cell"
           align="center"
         />
@@ -125,13 +128,20 @@ const VaccineServices = () => {
           className="table-cell"
           align="center"
         />
-          <Column
-            title={<p className="table-header">Date</p>}
-            dataIndex="date"
-            key="date"
-            className="table-cell"
-            align="center"
-          />
+        <Column
+          title={<p className="table-header">Patient ID</p>}
+          dataIndex="patientId"
+          key="patientId"
+          className="table-cell"
+          align="center"
+        />
+        <Column
+          title={<p className="table-header">Service Type</p>}
+          dataIndex="serviceType"
+          key="serviceType"
+          className="table-cell"
+          align="center"
+        />
         <Column
           title={<p className="table-header">Confirmation Code</p>}
           dataIndex="confirmationCode"
@@ -139,11 +149,25 @@ const VaccineServices = () => {
           className="table-cell"
           align="center"
         />
-        
+
+        <Column
+          title={<p className="table-header">Action</p>}
+          key="action"
+          align="center"
+          render={(_: any, record: DataType) => (
+            <Space size="middle">
+              <Link to="/appointment" className="table-cell">
+                Edit
+              </Link>
+              <Link to="" className="table-cell">
+                Remove
+              </Link>
+            </Space>
+          )}
+        />
       </Table>
-    </div>
     </div>
   );
 };
 
-export default VaccineServices;
+export default AppointmentManagement;

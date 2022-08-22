@@ -1,11 +1,15 @@
 import React from "react";
-import { Button, Form, Input, DatePicker, Radio, Upload, Checkbox } from "antd";
+import { Button, Form, Input, DatePicker, Radio, Upload } from "antd";
 import { useDispatch } from "react-redux";
 import { PlusOutlined } from "@ant-design/icons";
 import { addPatientData } from "../reducers/PatientDataSlice";
 import "../styles/PatientRegistrationPageStyle.css";
+import { useNavigate } from "react-router-dom";
 
 const PatientForm = () => {
+  const navigate = useNavigate();
+
+
   const dispatch = useDispatch();
   const [form] = Form.useForm();
   const onFinish = (values: any) => {
@@ -25,16 +29,20 @@ const PatientForm = () => {
     dispatch(addPatientData(formatedData));
     console.log(formatedData)
     form.resetFields();
+    navigate('/login');
   };
 
   const onFinishFailed = (errorInfo: any) => {
     console.log("Failed:", errorInfo);
   };
   return (
-    <div className="">
+    <div className="patient-registration-main-container">
+      <div className="reg-heading">
+        <h1>Patient Registration</h1>
+      </div>
       <Form
-        name="basic"
-        labelCol={{ span: 8 }}
+        name="form"
+        labelCol={{ span: 9 }}
         wrapperCol={{ span: 6 }}
         onFinish={onFinish}
         onFinishFailed={onFinishFailed}
@@ -42,21 +50,41 @@ const PatientForm = () => {
         autoComplete="off"
       >
         <Form.Item
-          label="First Name"
+          label={<h3>First Name</h3>}
           name="firstname"
           rules={[{ required: true, message: "Please input your first name" }]}
         >
-          <Input placeholder="First Name" />
+          <Input placeholder="First Name" className="patient-reg-input"/>
         </Form.Item>
         <Form.Item
-          label="Last Name"
+          label={<h3>Last Name</h3>}
           name="lastname"
           rules={[{ required: true, message: "Please input your last name" }]}
         >
-          <Input placeholder="Last Name" />
+          <Input placeholder="Last Name" className="patient-reg-input"/>
         </Form.Item>
+
         <Form.Item
-          label="DOB"
+          label={<h3>Email</h3>}
+          name="email"
+          rules={[
+            { required: true, message: "Please input your email adderss" },
+            { type: "email", message: "Please enter valid email" },
+          ]}
+        >
+          <Input placeholder="Email" className="patient-reg-input"/>
+        </Form.Item>
+
+        <Form.Item
+          label={<h3>Password</h3>}
+          name="street"
+          rules={[{ required: true }]}
+        >
+          <Input placeholder="Password" className="patient-reg-input"/>
+        </Form.Item> 
+        
+        <Form.Item
+          label={<h3>DOB</h3>}
           name="DOB"
           rules={[
             { required: true, message: "Please enter your Date of Birth" },
@@ -65,100 +93,83 @@ const PatientForm = () => {
           <DatePicker />
         </Form.Item>
         <Form.Item
-          label="Ethinicity"
+          label={<h3>Ethinicity</h3>}
           name="ethinicity"
           rules={[{ required: true, message: "Please input your ethinicity" }]}
         >
-          <Input placeholder="Ethincity" />
+          <Input placeholder="Ethincity" className="patient-reg-input"/>
         </Form.Item>
         <Form.Item
-          label="Gender"
+          label={<h3>Gender</h3>}
           name="gender"
           rules={[{ required: true, message: "Please select your gender" }]}
         >
           <Radio.Group>
-            <Radio value="male">Male</Radio>
-            <Radio value="female">Female</Radio>
-            <Radio value="other">Other</Radio>
+            <Radio value="male"><h2 className="patient-gender-checkb">Male</h2> </Radio>
+            <Radio value="female"><h2 className="patient-gender-checkb">Female</h2></Radio>
+            <Radio value="other"><h2 className="patient-gender-checkb">Other</h2></Radio>
           </Radio.Group>
-        </Form.Item>
-        <Form.Item
-          label="Email"
-          name="email"
-          rules={[
-            { required: true, message: "Please input your email adderss" },
-            { type: "email", message: "Please enter valid email" },
-          ]}
-        >
-          <Input placeholder="Email" />
         </Form.Item>
 
         <Form.Item
-          label="Street"
+          label={<h3>Street</h3>}
           name="street"
           rules={[{ required: true }]}
-          // style={{ display: "inline-block" }}
         >
-          <Input placeholder="Street" />
+          <Input placeholder="Street" className="patient-reg-input"/>
         </Form.Item>
+
         <Form.Item
-          label="City"
+          label={<h3>City</h3>}
           name="city"
           rules={[{ required: true }]}
           // style={{ display: "inline-block" }}
         >
-          <Input placeholder="City" />
+          <Input placeholder="City" className="patient-reg-input"/>
         </Form.Item>
         <Form.Item
-          label="State"
+          label={<h3>State</h3>}
           name="state"
           rules={[{ required: true }]}
           // style={{ display: "inline-block" }}
         >
-          <Input placeholder="State" />
+          <Input placeholder="State" className="patient-reg-input"/>
         </Form.Item>
 
         <Form.Item
-          label="Insurance ID"
+          label={<h3>Insurance ID</h3>}
           name="insurance"
           rules={[{ required: true }]}
           // style={{ display: "inline-block" }}
         >
-          <Input placeholder="Insurance ID" />
+          <Input placeholder="Insurance ID" className="patient-reg-input"/>
         </Form.Item>
         <Form.Item
-          label="Member ID"
+          label={<h3>Member ID</h3>}
           name="member"
           rules={[{ required: true }]}
           // style={{ display: "inline-block" }}
         >
-          <Input placeholder="Member ID" />
+          <Input placeholder="Member ID" className="patient-reg-input"/>
         </Form.Item>
         <Form.Item
-          label="Insurance Provider"
+          label={<h3>Insurance Provider</h3>}
           name="insuranceProvider"
           rules={[{ required: true }]}
           // style={{ display: "inline-block" }}
         >
-          <Input placeholder="Insurance Provider" />
+          <Input placeholder="Insurance Provider" className="patient-reg-input"/>
         </Form.Item>
 
-        <Form.Item label="Upload" valuePropName="fileList">
+        <Form.Item label={<h3>Upload</h3>} valuePropName="fileList">
           <Upload action="/upload.do" listType="picture-card">
             <PlusOutlined />
           </Upload>
         </Form.Item>
-        <Form.Item
-          name="Confirm"
-          valuePropName="checked"
-          wrapperCol={{ offset: 5, span: 16 }}
-          rules={[{ required: true, message: "Confirmation Required" }]}
-        >
-          <Checkbox>All the information I entered is true</Checkbox>
-        </Form.Item>
-        <Form.Item wrapperCol={{ offset: 4, span: 16 }}>
-          <Button type="primary" htmlType="submit">
-            Submit
+
+        <Form.Item wrapperCol={{ offset: 11, span: 16 }}>
+          <Button type="primary" htmlType="submit" className="submit-btn-patient-reg">
+            <p>Submit</p> 
           </Button>
         </Form.Item>
       </Form>

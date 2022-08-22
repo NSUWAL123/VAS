@@ -1,0 +1,11 @@
+.appointment-create-form {
+    width: 100%
+}
+
+.submit-btn-app-create-reg {
+    height: 4rem; 
+    background-color: #ff002f;
+    border: none;
+    border-radius: 5px;
+    margin: 2rem 0rem 2rem 0rem;
+}
