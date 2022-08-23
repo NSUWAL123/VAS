@@ -1,0 +1,23 @@
+.container-bl {
+    display: flex;
+    height: 80px;
+    align-items: center;
+}
+
+.container-bl h2 {
+    font-size: 4rem;
+    margin-left: 0.5%;
+    color: rgb(101, 101, 101);
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.container-bl .icon {
+    margin-left: 5%;
+}
+
+.hr-bl {
+    height: 1px;
+    border: none;
+    background-color: rgb(101, 101, 101);
+}
